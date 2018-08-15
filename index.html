@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Quotsic</title>
 </head>
 
@@ -57,7 +58,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <div class="upload-content">
             <div class="container bg-dark">
                 <div class="row">
@@ -82,23 +83,24 @@
                 <div class="container">
                     
                     <div class="row">
-                        <figure class="catalog" v-for="(product,index) in products">
-                            <img v-bind:src="product.image" alt="sample57" />
+                        <figure class="catalog col-md-3" v-for="(quotesic,index) in Quotesics">
+                            <img v-bind:src="quotesic.image" alt="sample57" class="col-md-12" v-on:click="openModal(quotesic)" />
                             <figcaption>
-                                <h3>{{product.name}}</h3>
-                                <p>{{product.description}}</p>
+                                <h3>{{quotesic.name}}</h3>
+                                <p>{{quotesic.description}}</p>
                                 <div class="price">
-                                    {{convertToRupiah(product.price)}}
+                                    {{quotesic.price}}
                                 </div>
+                                <span>{{quotesic.userName}}</span>
                             </figcaption>
-                            <div v-if="product.stock > 0">
-                                <button type="button" class="btn btn-primary" v-on:click="selectedItem(product)" data-toggle="modal" data-target="#detail-item">
-                                    Add To Cart
+                            
+                                <button type="submit" class="col-md-6" v-on:click="playsong(quotesic.music)">
+                                        playsong<i> <img class="col-md-6" src="./aset/play-button.png"></i>
                                 </button>
-                            </div>
-                            <div v-else>
-                                sold out
-                            </div>
+                                    
+                                
+                            
+                          
                         </figure>
                     </div>
 
@@ -180,8 +182,8 @@
             </div>
         </footer>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="./lib/root.js"></script>
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
