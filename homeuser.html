@@ -25,16 +25,15 @@
   crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./lib/items-content.js"></script>
-    <script src="./lib/main-content.js"></script>
-    <script src="./lib/uploadfile.js"></script>
+    <script src="./lib/item-content-view.js"></script>
+    <script src="./lib/main-content-home.js"></script>
     <script src="./lib/modal.js"></script>
     <script src="./lib/header-home.js"></script>
     <script src="./lib/footer-home.js"></script>
 
     <link rel="stylesheet" href="./css/home.css">
 
-    <title>Quotsic</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -44,15 +43,7 @@
         <header-content></header-content>
     </header>
     <main>
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=473680486439877&autoLogAppEvents=1';
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-       <main-content></main-content>
+       <main-content-home></main-content-home>
     </main>
 
     <!-- FOOOTER -->
@@ -60,7 +51,7 @@
         <footer-content></footer-content>
     </footer>
 </div>
-   </div>
+   
 
     <script>
         var app = new Vue({
