@@ -37,16 +37,16 @@
 
 		<div class="limiter">
 			<div class="container-login100">
-				<div class="wrap-login100 p-b-160 p-t-50">
-					<form class="login100-form validate-form">
+				<div class="wrap-login100 p-b-160 p-t-50" style="margin-left:auto;margin-right: auto">
+					<form class="login100-form validate-form"></form>
 						<span class="login100-form-title p-b-43">
 							Account Register
 						</span>
-						<div class="wrap-input100 rs1 validate-input" data-validate="First Name is required">
+						<div class="wrap-input100  validate-input" data-validate="First Name is required">
 						<input class="input100" type="text" name="firstname" v-model="first_name">
 						<span class="label-input100">First Name</span>
 					</div>
-					<div class="wrap-input100 rs2 validate-input" data-validate="Last Name is required">
+					<div class="wrap-input100 validate-input" data-validate="Last Name is required">
 						<input class="input100" type="text" name="lastname" v-model="last_name">
 						<span class="label-input100">Last Name</span>
 					</div>
@@ -96,6 +96,8 @@
 					})
 					.then(result=>{
 						console.log(result)
+						window.location ="http://localhost:8080/index.html"
+						localStorage.setItem('token',result.data.token)
 					})
 					.catch(err=>{
 						console.log(err)

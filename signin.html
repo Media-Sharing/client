@@ -37,48 +37,60 @@
 
 <div id="app">
 
+
 	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-b-160 p-t-50">
-				<form class="login100-form "></form>
+		<center>
 
-
-
-					<span class="login100-form-title p-b-43">
-						Account Login
-					</span>
-					
-					<div class="wrap-input100 validate-input" data-validate = "Email is required">
-						<input class="input100" type="email" name="email" v-model="email">
-						<span class="label-input100" >Email</span>
-					</div>
-					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" v-model="password">
-						<span class="label-input100">Password</span>
-					</div>
-					
-					<div class="wrap-input100">
-						<button class="login100-form-btn" @click="login">
-							Sign in
-						</button>
-					</div>
-					
-					<div class="text-center w-full p-t-23">
-						<h5>Don't have an account?</h5>
-						<a href="./signup.html" class="txt1">
-							Register account?
-						</a>
-					</div>
-				</form>
+			<div class="container-login100" >
+					<div class="wrap-login100 p-b-160 p-t-50" style="margin-left:auto;margin-right: auto">
+						<form class="login100-form "></form>
+						
+						
+						
+						<span class="login100-form-title p-b-43">
+							Account Login
+						</span>
+						
+						<div class="wrap-input100 validate-input" data-validate = "Email is required">
+							<input class="input100" type="email" name="email" v-model="email">
+							<span class="label-input100" >Email</span>
+						</div>
+						
+						
+						<div class="wrap-input100 validate-input" data-validate="Password is required">
+							<input class="input100" type="password" name="pass" v-model="password">
+							<span class="label-input100">Password</span>
+						</div>
+						
+						<div class="wrap-input100">
+							<button class="login100-form-btn" @click="login">
+								Sign in
+							</button>
+						</div>
+						
+						<div class="text-center w-full p-t-23">
+							<h5>Don't have an account?</h5>
+							<a href="./signup.html" class="txt1">
+								Register account?
+							</a>
+						</div>
+					</form>
+				</div>
+			</center>
 			</div>
-	</div>
+			
+		</div>
+		
+		
+		
+		<script>
+			
+		let token = localStorage.getItem('token')
+		if(token){
+			window.location ="http://localhost:8080/index.html"
+		}
 
-</div>
 
-	
-	<script>
 		new Vue({
 			el :'#app',
 			data :{
@@ -94,6 +106,8 @@
 					})
 					.then(dataUser=>{
 						console.log(dataUser)
+						localStorage.setItem('token',dataUser.data.token)
+						window.location="http://localhost:8080/index.html"
 					})
 					.catch(err=>{
 						console.log(err)
