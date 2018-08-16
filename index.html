@@ -11,106 +11,36 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./lib/root-body.js"></script>
-    <script src="./lib/child-body-content.js"></script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./lib/main-content.js"></script>
+    <script src="./lib/items-content.js"></script>
     <script src="./lib/header.js"></script>
     <script src="./lib/footer.js"></script>
+    <script src="./lib/modal.js"></script>
+    <script src="./lib/uploadfile.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <title>Quotsic</title>
 </head>
 
 <body>
+    <div id="main">
+        <header>
+            <header-content></header-content>
+        </header>
 
-    <header id="header">
-        <header-content></header-content>
-    </header>
-
-    <main id="main">
-        <div class="upload-content">
-            <div class="container bg-dark">
-                <div class="row">
-                    <div class="form col-md-4 offset-md-2">
-                        <div class="form-group">
-                            <textarea class="form-control-lg" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="upload col-md-3">
-                        <div class="upload-btn-wrapper">
-                            <button class="btn">Upload a file</button>
-                            <input type="file" name="myfile" />
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="show-content">
-            <div class="content">
-                <div class="container">
-                    <main-content></main-content>
-                </div>
-            </div>
-        </div>
-
-       
-
-    </main>
-
-   
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
-        </div>
-      </div>
+        <main>
+            <main-content></main-content>
+        </main>
+        <footer>
+            <footer-content></footer-content>
+        </footer>
     </div>
-
-    <footer id="footer">
-
-        <footer-content></footer-content>
-    </footer>
-
-
-
     <script>
         var app = new Vue({
             el: '#main',
-        })
-    </script>
-    <script>
-        var app = new Vue({
-            el: '#header',
-        })
-    </script>
 
-    <script>
-        var app = new Vue({
-            el: '#footer',
         })
     </script>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -118,6 +48,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
