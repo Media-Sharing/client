@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login V20</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+	
+</head>
+
+<body>
+	<div id="app">
+
+		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100 p-b-160 p-t-50" style="margin-left:auto;margin-right: auto">
+					<form class="login100-form validate-form"></form>
+						<span class="login100-form-title p-b-43">
+							Account Register
+						</span>
+						<div class="wrap-input100  validate-input" data-validate="First Name is required">
+						<input class="input100" type="text" name="firstname" v-model="first_name">
+						<span class="label-input100">First Name</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Last Name is required">
+						<input class="input100" type="text" name="lastname" v-model="last_name">
+						<span class="label-input100">Last Name</span>
+					</div>
+					<div class="container-login100-form-btn">
+						<div class="wrap-input100 " data-validate="Email is required" style="width: 100%">
+							<input class="input100" type="text" name="email"  v-model="email">
+							<span class="label-input100">Email</span>
+						</div>
+						<div class="wrap-input100 validate-input" data-validate="Password is required" style="width: 100%">
+							<input class="input100" type="password" name="pass" v-model="password">
+							<span class="label-input100">Password</span>
+						</div>
+						<button class="login100-form-btn" v-on:click="register">
+							Sign in
+						</button>
+					</div>
+
+					<div class="text-center w-full p-t-23">
+						Do you have account?
+						<a href="./signin.html" class="txt1">
+							Login
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+		new Vue({
+			el : "#app",
+			data :{
+				first_name :'',
+				last_name : '',
+				email : '',
+				password :''
+			},
+			methods : {
+				register(){
+					console.log(this.first_name)
+					axios.post('http://localhost:3000/users/register',{
+						first_name : this.first_name,
+						last_name : this.last_name,
+						email : this.email,
+						password : this.password
+					})
+					.then(result=>{
+						console.log(result)
+						window.location ="http://localhost:8080/index.html"
+						localStorage.setItem('token',result.data.token)
+					})
+					.catch(err=>{
+						console.log(err)
+					})
+				}
+			}
+			
+		})
+		
+	
+	</script>
+
+
+
+
+
+	
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="lib/main.js"></script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <input type="text" v-model="email">
+    <button @click="login"> tes</button>
+        <script>
+                new Vue({
+                    data :{
+                        email :'',
+                        password : ''
+                    },
+                    methods : {
+                        login(){
+                            console.log(this.email)
+                            // axios.post('http://localhost:3000/users/login',{
+                            //     email : this.email,
+                            //     password : this.password
+                            // })
+                            // .then(dataUser=>{
+                            //     console.log(dataUser)
+                            // })
+                            // .catch(err=>{
+                            //     console.log(err)
+                            // })
+                        }
+                    }
+                })
+            </script>
+</body>
+</html>
