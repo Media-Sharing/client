@@ -1,0 +1,11 @@
+body {
+  background: #2575fc;
+  background: -webkit-linear-gradient(left, #6a11cb, #2575fc);
+  background: -o-linear-gradient(left, #6a11cb, #2575fc);
+  background: -moz-linear-gradient(left, #6a11cb, #2575fc);
+  background: linear-gradient(left, #6a11cb, #2575fc);
+}
+
+.nav-logout {
+    margin-left: 30px;
+}
